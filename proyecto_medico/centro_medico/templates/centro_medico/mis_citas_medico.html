@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h2>Mis Citas</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Fecha</th>
+    <th>Hora</th>
+    <th>Paciente</th>
+  </tr>
+  {% for cita in citas %}
+  <tr>
+    <td>{{ cita.id }}</td>
+    <td>{{ cita.fecha }}</td>
+    <td>{{ cita.hora }}</td>
+    <td>{{ cita.paciente }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
