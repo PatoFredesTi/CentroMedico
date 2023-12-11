@@ -1,0 +1,8 @@
+<!-- Navbar para médicos autenticados -->
+<nav id="navbarMedico" class="navbar navbar-expand-lg navbar-light bg-light" style="display:none;">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" href="{% url 'inicio_medico' %}">Inicio Médico</a>
+        <a class="nav-item nav-link" href="{% url 'mis_citas_medico' %}">Mis Citas</a>
+        <a class="nav-item nav-link" href="javascript:void(0);" onclick="logout()">Cerrar Sesión</a>
+    </div>
+</nav>

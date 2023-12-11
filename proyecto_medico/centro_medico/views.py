@@ -7,6 +7,7 @@ from django.contrib.auth import login
 # Create your views here.
 from django.shortcuts import render
 from datetime import datetime, timedelta
+from django.shortcuts import render
 
 # Vista para la página de inicio del médico
 def inicio_medico(request):
@@ -117,3 +118,8 @@ def inicio_paciente(request):
     
     tiene_citas = len(citas) > 0
     return render(request, 'centro_medico/inicio_paciente.html', {'citas': citas, 'tiene_citas': tiene_citas})
+
+
+def mis_citas_paciente(request):
+    # Código para obtener datos de las citas, si es necesario
+    return render(request, 'centro_medico/mis_citas_paciente.html')

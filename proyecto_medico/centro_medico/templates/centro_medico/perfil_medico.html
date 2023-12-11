@@ -15,6 +15,15 @@
             <p><strong>Especialidad:</strong> {{ perfil.especialidad }}</p>
         </div>
     </div>
-    
+    <button onclick="location.href=&quot;{% url 'inicio' %}&quot;" class="btn btn-danger">Cerrar Sesión</button>
+
 </div>
 {% endblock %}
+<script>
+    function logout() {
+        // Aquí puedes limpiar cualquier dato almacenado en el frontend, si es necesario.
+        localStorage.removeItem('userType');
+        // Redirigir al usuario a la URL de logout que manejará el cierre de sesión en el backend.
+        window.location.href = '{% url 'inicio' %}';
+    }
+</script>

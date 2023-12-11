@@ -20,6 +20,8 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('register/', register, name='register'),
     path('inicio-paciente/', inicio_paciente, name='inicio_paciente'),
+    path('logout/', LogoutView.as_view(next_page='inicio'), name='logout'),
+    path('mis-citas-paciente/', views.mis_citas_paciente, name='mis_citas_paciente'),
 
 
 

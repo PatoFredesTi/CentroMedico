@@ -1,0 +1,44 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="container mt-4 container-citas">
+    <h2>Mis Citas</h2>
+    <table class="table table-bordered table-citas">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Especialidad</th>
+                <th>Médico</th>
+                <!-- Otros campos que consideres necesarios -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>15/12/2023</td>
+                <td>09:30 AM</td>
+                <td>Dermatología</td>
+                <td>Dra. María López</td>
+            </tr>
+            <tr>
+                <td>20/12/2023</td>
+                <td>11:00 AM</td>
+                <td>Odontología</td>
+                <td>Dr. Carlos Hernández</td>
+            </tr>
+            <tr>
+                <td>05/01/2024</td>
+                <td>02:00 PM</td>
+                <td>Pediatría</td>
+                <td>Dra. Ana Torres</td>
+            </tr>
+            <tr>
+                <td>10/01/2024</td>
+                <td>08:00 AM</td>
+                <td>Cardiología</td>
+                <td>Dr. Sergio Ramírez</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

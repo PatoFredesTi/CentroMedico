@@ -1,0 +1,8 @@
+<!-- Navbar para pacientes autenticados -->
+<nav id="navbarPaciente" class="navbar navbar-expand-lg navbar-light bg-light" style="display:none;">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" href="{% url 'inicio_paciente' %}">Inicio Paciente</a>
+        <a class="nav-item nav-link" href="{% url 'mis_citas_paciente' %}">Mis Citas</a>
+        <a class="nav-item nav-link" href="javascript:void(0);" onclick="logout()">Cerrar Sesión</a>
+    </div>
+</nav>
