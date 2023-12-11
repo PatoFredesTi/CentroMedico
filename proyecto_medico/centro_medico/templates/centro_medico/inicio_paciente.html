@@ -1,0 +1,20 @@
+<!-- centro_medico/templates/centro_medico/inicio_paciente.html -->
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Bienvenido a su Área de Paciente</h2>
+    {% if tiene_citas %}
+        <h3>Sus Próximas Citas</h3>
+        <ul>
+            {% for cita in citas %}
+            <li>
+                Fecha: {{ cita.fecha|date:"d M Y" }}, Hora: {{ cita.hora }}, con {{ cita.especialista }}
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tiene citas programadas próximamente.</p>
+    {% endif %}
+</div>
+{% endblock %}

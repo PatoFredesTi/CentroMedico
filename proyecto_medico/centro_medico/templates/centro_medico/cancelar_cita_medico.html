@@ -1,6 +1,43 @@
-{% extends "base_generic.html" %}
+<!-- centro_medico/templates/centro_medico/cancelar_cita_medico.html -->
+{% extends 'base_generic.html' %}
 
 {% block content %}
-<h2>Cancelar Cita</h2>
-<p>La cita ha sido cancelada.</p>
+<div class="container mt-4">
+    <h2>Cancelar Cita</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre del Paciente</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cita in citas %}
+            <tr>
+                <td>{{ cita.nombre_paciente }}</td>
+                <td>{{ cita.fecha }}</td>
+                <td>{{ cita.hora }}</td>
+                <td>
+                    <a href="{% url 'nombre_url_cancelar_cita' cita.id %}" class="btn btn-danger">Cancelar Cita</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cancelButtons = document.querySelectorAll('.btn-danger');
+        cancelButtons.forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                const row = button.closest('tr');
+                row.remove();
+                // Aquí podrías agregar una llamada AJAX para realizar la acción de cancelación en el servidor.
+            });
+        });
+    });
+    </script>
 {% endblock %}

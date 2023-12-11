@@ -1,6 +1,27 @@
-{% extends "base_generic.html" %}
+<!-- centro_medico/templates/centro_medico/inicio_medico.html -->
+{% extends 'base_generic.html' %}
 
 {% block content %}
-<h2>Inicio Médico</h2>
-<p>Bienvenido al sistema del centro médico.</p>
+<div class="container mt-4">
+    <div class="jumbotron">
+        <h1 class="display-4">¡Bienvenido, Doctor!</h1>
+        <p class="lead">Esta es su página de inicio donde puede ver las actualizaciones diarias y las citas programadas.</p>
+        <hr class="my-4">
+        
+        <div class="alert alert-info" role="alert">
+            <i class="fas fa-envelope"></i> Tiene nuevos mensajes.
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                Citas para hoy
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Resumen de citas</h5>
+                <p class="card-text">Hoy tiene <strong>3 citas</strong> programadas.</p>
+                <a href="{% url 'mis_citas_medico' %}" class="btn btn-primary">Ver citas</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

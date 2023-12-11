@@ -1,16 +1,18 @@
-<!-- centro_medico/templates/centro_medico/mis_citas_medico.html -->
+<!-- centro_medico/templates/centro_medico/vista_general_cancelaciones.html -->
 {% extends 'base_generic.html' %}
+
+{% load static %}
 
 {% block content %}
 <div class="container mt-4">
-    <h2>Mis Citas</h2>
+    <h2>Cancelar Citas</h2>
     <table class="table">
         <thead>
             <tr>
                 <th>Nombre del Paciente</th>
                 <th>Fecha</th>
                 <th>Hora</th>
-                <th>Previsión</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +21,14 @@
                 <td>{{ cita.nombre_paciente }}</td>
                 <td>{{ cita.fecha }}</td>
                 <td>{{ cita.hora }}</td>
-                <td>{{ cita.prevision }}</td>
+                <td>
+                    <!-- Aquí utilizamos el id de la cita para crear la URL de cancelación -->
+                    <a href="#" class="btn btn-danger">Cancelar Cita</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No hay citas programadas.</td>
             </tr>
             {% endfor %}
         </tbody>

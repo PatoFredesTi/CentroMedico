@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Médico</title>
+    <!-- Incluir Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Agregar tus propios estilos CSS -->
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+</head>
+<body>
+
+    {% block navbar %}
+    <nav>
+        <ul id="navbarLinks">
+            <!-- Enlaces por defecto para usuarios no autenticados -->
+            <li><a href="{% url 'inicio' %}">Inicio</a></li>
+            <li><a href="{% url 'contacto' %}">Contacto</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+        </ul>
+    </nav>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var userType = localStorage.getItem('userType');
+            var navbarLinks = document.getElementById('navbarLinks');
+            
+            if (userType === 'medico') {
+                // Cambiar los enlaces del Navbar para médicos
+                navbarLinks.innerHTML = 
+                    '<li><a href="{% url 'inicio_medico' %}">Inicio</a></li>' +
+                    '<li><a href="{% url 'mis_citas_medico' %}">Mis Citas</a></li>' +
+                    '<li><a href="{% url 'vista_general_cancelaciones' %}">Cancelar Cita</a></li>' +
+                    '<li><a href="{% url 'cambiar_cita_medico' %}">Cambiar Cita</a></li>' +
+                    '<li><a href="{% url 'perfil_medico' %}">Perfil</a></li>';
+            } else if (userType === 'paciente') {
+                // Cambiar los enlaces del Navbar para pacientes
+                navbarLinks.innerHTML = 
+                    '<li><a href="{% url 'inicio_paciente' %}">Inicio</a></li>' +
+                    // Agrega aquí más enlaces específicos para pacientes si los hay
+                    '<li><a href="{% url 'perfil_paciente' %}">Perfil</a></li>';
+            }
+        });
+    </script>
+    {% endblock navbar %}
+
+
+{% block content %}
+<!-- Contenido principal -->
+{% endblock %}
+
+<!-- Opcional: Incluir Bootstrap JS y Popper.js al final para funcionalidades interactivas -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

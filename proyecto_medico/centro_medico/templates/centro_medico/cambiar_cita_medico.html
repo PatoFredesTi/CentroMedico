@@ -1,6 +1,65 @@
-{% extends "base_generic.html" %}
+<!-- centro_medico/templates/centro_medico/cambiar_cita_medico.html -->
+{% extends 'base_generic.html' %}
 
 {% block content %}
-<h2>Cambiar Cita</h2>
-<p>Formulario para cambiar la cita (aún no implementado).</p>
+<div class="container mt-4">
+    <h2>Cambiar Citas</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre del Paciente</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cita in citas %}
+            <tr>
+                <td>{{ cita.nombre_paciente }}</td>
+                <td>{{ cita.fecha }}</td>
+                <td>{{ cita.hora }}</td>
+                <td>
+                    <!-- Botón que activa el modal de cambio de cita -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCambioCita{{ cita.id }}">
+                        Cambiar Cita
+                    </button>
+
+                    <!-- Modal para cambiar la cita -->
+                    <div class="modal fade" id="modalCambioCita{{ cita.id }}" tabindex="-1" role="dialog" aria-labelledby="modalCambioCitaLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalCambioCitaLabel">Cambiar Cita</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Formulario para cambiar la cita -->
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="fechaCita">Fecha</label>
+                                            <input type="date" class="form-control" id="fechaCita">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="horaCita">Hora</label>
+                                            <input type="time" class="form-control" id="horaCita">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="motivoCita">Motivo del Cambio</label>
+                                            <textarea class="form-control" id="motivoCita" rows="3"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

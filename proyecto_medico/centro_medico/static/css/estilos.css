@@ -1,0 +1,69 @@
+/* static/centro_medico/css/estilos.css */
+.jumbotron {
+    background-color: #f8f9fa; /* Ejemplo de color de fondo */
+    border-radius: 0.5rem; /* Bordes redondeados */
+}
+
+.alert {
+    display: flex;
+    align-items: center; /* Centra verticalmente el texto y el ícono */
+}
+
+.fas {
+    margin-right: 0.5rem; /* Espacio a la derecha del ícono */
+}
+
+.card {
+    margin-top: 2rem; /* Espacio arriba del recuadro de citas */
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+/* static/centro_medico/css/estilos.css */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;  /* Hace la imagen redonda */
+}
+
+.container {
+    padding: 20px;
+    background-color: #f8f9fa; /* Color de fondo ligero */
+}
+
+h2 {
+    color: #007bff; /* Color del título */
+}
+
+p {
+    color: #333; /* Color del texto */
+}
+
+/* static/css/estilos.css */
+.testimonio {
+    background-color: rgba(211, 211, 211, 0.5); /* Gris semi-transparente */
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.testimonio p {
+    color: #333; /* Color del texto */
+}
+
+.testimonio footer {
+    text-align: right;
+    color: #007bff; /* Color para el nombre del autor */
+    font-weight: bold;
+}
